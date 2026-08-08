@@ -1,97 +1,164 @@
+/* ==========================================================================
+   Bylign — modern minimal
+   Off-white: #F7F5F0   Black: #111111
+   Heading: DotGothic16   Body: Space Mono
+   ========================================================================== */
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html, body {
-  height: 100%;
+:root {
+  --paper: #F7F5F0;
+  --ink: #111111;
+  --line: #DCDAD2;
+
+  --font-heading: 'DotGothic16', monospace;
+  --font-body: 'Space Mono', monospace;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+html, body { min-height: 100%; }
 
 body {
-  font-family: 'Mulish', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
-  background: #f2e9cc;
-  color: #232b2b;
+  color: var(--ink);
+  background: var(--paper);
   -webkit-font-smoothing: antialiased;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
+
+a { color: inherit; }
 
 .page {
-  max-width: 680px;
-  width: 100%;
-  padding: 3rem 4rem;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 3rem 2rem 4rem;
 }
 
-.logo-box {
-  display: inline-block;
-  margin-bottom: 4rem;
+/* ---------- header ---------- */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 5rem;
 }
-.logo-box img {
-  height: 44px;
+
+.logo {
+  height: 40px;
   width: auto;
   display: block;
 }
 
-.services { margin-bottom: 4.5rem; }
-.services p {
-  font-family: 'Mulish', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 36px;
-  font-weight: 900;
-  line-height: 1.2;
-  color: #232b2b;
-  letter-spacing: -0.01em;
+.header-email {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.15s ease;
 }
+.header-email:hover { opacity: 0.6; }
+
+/* ---------- section labels ---------- */
+
+.label {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  margin-bottom: 1.1rem;
+}
+
+/* ---------- services ---------- */
+
+.services { margin-bottom: 4.5rem; }
+
+.service-list { list-style: none; }
+
+.service-list li {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* ---------- about ---------- */
 
 .about { margin-bottom: 4.5rem; }
+
 .about p {
-  font-family: 'Mulish', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 400;
-  font-size: 17px;
-  color: #a69e46;
+  font-family: var(--font-body);
+  font-size: 14px;
   line-height: 1.75;
-  max-width: 480px;
+  color: var(--ink);
+  max-width: 46ch;
 }
-.about p + p { margin-top: 0.5rem; }
+.about p + p { margin-top: 0.6rem; }
+
 .about a {
-  color: #00aaaa;
-  font-weight: 500;
+  font-weight: 700;
   text-decoration: underline;
-  text-decoration-color: rgba(0, 170, 170, 0.35);
-  text-underline-offset: 3px;
-  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  text-underline-offset: 2px;
+  transition: opacity 0.15s ease;
 }
-.about a:hover { color: #ebb549; text-decoration-color: #ebb549; }
+.about a:hover { opacity: 0.6; }
+
+/* ---------- contact ---------- */
+
+.contact { margin-bottom: 4rem; }
 
 .contact-head {
-  font-weight: 400;
-  font-size: 17px;
-  color: #a69e46;
-  margin-bottom: 0.35rem;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--ink);
+  margin-bottom: 0.4rem;
 }
-.contact-email {
-  font-size: 22px;
-  font-weight: 700;
-  font-family: 'Mulish', -apple-system, BlinkMacSystemFont, sans-serif;
-  color: #00aaaa;
-  letter-spacing: -0.01em;
-  text-decoration: underline;
-  text-decoration-color: rgba(0, 170, 170, 0.35);
-  text-underline-offset: 4px;
-  transition: color 0.15s ease, text-decoration-color 0.15s ease;
-}
-.contact-email:hover { color: #ebb549; text-decoration-color: #ebb549; }
 
-footer { margin-top: 5rem; }
-footer small {
-  font-weight: 300;
-  font-size: 12px;
-  color: #a69e46;
+.contact-email {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.15s ease;
 }
-footer em { font-style: italic; }
+.contact-email:hover { opacity: 0.6; }
+
+/* ---------- footer ---------- */
+
+footer { border-top: 1px solid var(--line); padding-top: 1.25rem; }
+footer small {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--ink);
+  opacity: 0.6;
+}
+
+/* ---------- responsive ---------- */
 
 @media (max-width: 600px) {
-  .page { padding: 2rem 1.5rem 4rem; }
-  .logo-box img { height: 32px; }
-  .services p { font-size: 26px; }
-  .contact-email { font-size: 18px; }
+  .page { padding: 2.25rem 1.35rem 3.5rem; }
+  .site-header { margin-bottom: 3.5rem; }
+  .logo { height: 32px; }
+  .services { margin-bottom: 3.5rem; }
+  .about { margin-bottom: 3.5rem; }
+  .service-list li { font-size: 21px; }
+}
+
+/* ---------- focus states ---------- */
+
+a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
 }
